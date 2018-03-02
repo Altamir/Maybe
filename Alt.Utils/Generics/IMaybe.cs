@@ -6,6 +6,7 @@ namespace Alt.Utils.Generics
     {
         bool HasValue { get; }
         T Value { get; }
-        IList<string> Errors { get; }       
+        IList<string> Errors { get; }
+        string Error { get; }
     }
 }

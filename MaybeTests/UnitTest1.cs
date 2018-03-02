@@ -22,6 +22,26 @@ namespace MaybeTests
         }
 
         [TestMethod]
+        public void Test_Imay_not()
+        {
+            IMaybe<Car> mayCar = default(Maybe<Car>);
+
+            Assert.IsNotNull(mayCar);
+            Assert.IsFalse(mayCar.HasValue);
+        }
+
+        [TestMethod]
+        public void Test_tentar_pegar_valor_caom_error()
+        {
+            IMaybe<Car> mayCar = default(Maybe<Car>);
+
+            Assert.IsNotNull(mayCar);
+            Assert.IsFalse(mayCar.HasValue);
+            Assert.IsNull(mayCar.Value);
+            Assert.AreEqual(mayCar.Error, "Sem valor");
+        }
+
+        [TestMethod]
         public void Test_Imay_Sem_Valo()
         {
             IMaybe<Car> mayCar = Maybe<Car>.None;

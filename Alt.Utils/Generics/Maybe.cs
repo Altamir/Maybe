@@ -8,6 +8,7 @@ namespace Alt.Utils.Generics
         public bool HasValue => hasValue;
         public T Value => _value;
         public IList<string> Errors => errors.ToList();
+        public string Error => errors.SingleOrDefault();
 
         T _value;
         List<string> errors;
@@ -27,18 +28,24 @@ namespace Alt.Utils.Generics
         }
         public Maybe(IList<string> error)
         {
-            this.errors = new List<string>(error) ;
+            this.errors = new List<string>(error);
             this.hasValue = false;
             _value = default(T);
         }
 
-        public static IMaybe<T> None => new Maybe<T>("Sem valor de retorno");
+        public static IMaybe<T> None => new Maybe<T>("Sem valor");
         public static IMaybe<T> WithErrors(IList<string> errors)
         {
             return new Maybe<T>(errors);
         }
+        public static IMaybe<T> WithError(string error)
+        {
+            return new Maybe<T>(error);
+        }
         public static IMaybe<T> Some(T value)
         {
+            if (value == null)
+                return WithError("Value is null");
             return new Maybe<T>(value);
         }
     }
