@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using Alt.Utils.Generics;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -63,7 +62,5 @@ namespace MaybeTests
             Assert.IsTrue(mayCar.HasValue);
             Assert.AreEqual(mayCar.Value.name, "car test");
         }
-
-
     }
 }
