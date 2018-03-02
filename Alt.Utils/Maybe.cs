@@ -1,7 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using Alt.Utils.Generics;
+using System.Collections.Generic;
 using System.Linq;
 
-namespace Alt.Utils.Generics
+namespace Alt.Utils
 {
     public struct Maybe<T> : IMaybe<T>
     {
