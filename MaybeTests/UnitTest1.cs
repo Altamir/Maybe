@@ -38,7 +38,7 @@ namespace MaybeTests
             Assert.IsNotNull(mayCar);
             Assert.IsFalse(mayCar.HasValue);
             Assert.IsNull(mayCar.Value);
-            Assert.AreEqual(mayCar.Error, "Sem valor");
+            Assert.AreEqual(mayCar.Error, "unknown error");
         }
 
         [TestMethod]

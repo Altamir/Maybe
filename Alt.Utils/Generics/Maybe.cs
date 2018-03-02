@@ -7,8 +7,8 @@ namespace Alt.Utils.Generics
     {
         public bool HasValue => hasValue;
         public T Value => _value;
-        public IList<string> Errors => errors.ToList();
-        public string Error => errors.SingleOrDefault();
+        public IList<string> Errors => errors != null?errors.ToList():new List<string> { "unknown error" };
+        public string Error => errors != null ?errors.SingleOrDefault(): "unknown error";
 
         T _value;
         List<string> errors;
