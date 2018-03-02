@@ -4,5 +4,5 @@ install:
   - nuget restore Alt.Utils.sln
   - nuget install NUnit.Runners -Version 2.6.4 -OutputDirectory testrunner
 script:
-  - xbuild /p:Configuration=Release Alt.Utils.sln
+  - msbuild  /p:Configuration=Release Alt.Utils.sln
   - mono ./testrunner/NUnit.Runners.2.6.4/tools/nunit-console.exe ./Alt.Utils.MaybeTests/bin/Release/MaybeTests.Tests.dll
