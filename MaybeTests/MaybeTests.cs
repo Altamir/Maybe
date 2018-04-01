@@ -2,7 +2,7 @@
 using System.Linq;
 using Alt.Utils;
 using Alt.Utils.Generics;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NUnit.Framework;
 
 namespace MaybeTests
 {
@@ -11,17 +11,17 @@ namespace MaybeTests
         public string name { get; set; }
     }
 
-    [TestClass]
+    [TestFixture]
     public class UnitTest1
     {
-        [TestMethod]
+        [Test]
         public void Test_Imay_not_null()
         {
             IMaybe<Car> mayCar = Maybe<Car>.None;
             Assert.IsNotNull(mayCar);
         }
 
-        [TestMethod]
+        [Test]
         public void Test_Imay_not()
         {
             IMaybe<Car> mayCar = default(Maybe<Car>);
@@ -30,7 +30,8 @@ namespace MaybeTests
             Assert.IsFalse(mayCar.HasValue);
         }
 
-        [TestMethod]
+        
+        [Test]
         public void Test_tentar_pegar_valor_caom_error()
         {
             IMaybe<Car> mayCar = default(Maybe<Car>);
@@ -41,14 +42,14 @@ namespace MaybeTests
             Assert.AreEqual(mayCar.Error, "unknown error");
         }
 
-        [TestMethod]
+        [Test]
         public void Test_Imay_Sem_Valo()
         {
             IMaybe<Car> mayCar = Maybe<Car>.None;
             Assert.IsTrue(!mayCar.HasValue);
         }
 
-        [TestMethod]
+        [Test]
         public void Test_Imay_Sem_valor_com_msg_error()
         {
             IMaybe<Car> mayCar = Maybe<Car>.WithErrors(new List<string> { "Error test" });
@@ -56,7 +57,7 @@ namespace MaybeTests
             Assert.AreEqual(mayCar.Errors.Single(), "Error test");
         }
 
-        [TestMethod]
+        [Test]
         public void Test_Imay_Com_valor_()
         {
             IMaybe<Car> mayCar = Maybe<Car>.Some(new Car() { name = "car test" });
