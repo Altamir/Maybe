@@ -23,6 +23,7 @@ before_install:
 install:
   - nuget restore Alt.Utils.sln
   - sudo apt-get install nunit-console  
+
 script:
   - msbuild  /p:Configuration=Debug Alt.Utils.sln
   - ls 
