@@ -5,4 +5,5 @@ install:
   - nuget install NUnit.Runners -Version 3.7.0 -OutputDirectory testrunner
 script:
   - msbuild  /p:Configuration=Debug Alt.Utils.sln
-  - mono ./testrunner/NUnit.ConsoleRunner.3.7.0/tools/nunit3-console.exe ~/home/travis/build/Altamir/Maybe/MaybeTests/obj/Release/MaybeTests.dll
+  - ls
+  - mono ./testrunner/NUnit.ConsoleRunner.3.7.0/tools/nunit3-console.exe Alt.Utils\MaybeTests\bin\Debug\MaybeTests.dll
