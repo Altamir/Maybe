@@ -14,7 +14,7 @@ addons:
     notification_email: altamir.benkenstein@outlook.com
     build_command_prepend: ""
     build_command: ""
-    branch_pattern: coverity_scan
+    branch_pattern: master
 
 before_install:
   - echo -n | openssl s_client -connect https://scan.coverity.com:443 | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' | sudo tee -a /etc/ssl/certs/ca-
@@ -25,6 +25,5 @@ install:
   - sudo apt-get install nunit-console  
 
 script:
-  - msbuild  /p:Configuration=Debug Alt.Utils.sln
-  - ls 
+  - msbuild  /p:Configuration=Debug Alt.Utils.sln   
   - nunit-console ./MaybeTests/bin/Debug/MaybeTests.dll
