@@ -6,6 +6,6 @@ install:
 script:
   - msbuild  /p:Configuration=Debug Alt.Utils.sln
   - ls
-  - cd ./MaybeTests
+  - cd ./testrunner
   - ls
   - mono ./testrunner/NUnit.ConsoleRunner.3.7.0/tools/nunit3-console.exe ./MaybeTests/bin/Debug/MaybeTests.dll
