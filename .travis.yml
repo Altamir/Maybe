@@ -2,11 +2,11 @@ language: csharp
 solution: Alt.Utils.sln
 install:
   - nuget restore Alt.Utils.sln
-  - nuget install NUnit.Runners -OutputDirectory testrunner
+  - nuget install NUnit.Runners -Version 3.2.0 -OutputDirectory testrunner
 script:
   - msbuild  /p:Configuration=Debug Alt.Utils.sln
   - ls
-  - cd ./MaybeTests/bin/Debug/
+  - cd ./testrunner
   - ls
-  - mono ./testrunner/NUnit.ConsoleRunner*/tools/nunit3-console.exe ./MaybeTests/bin/Debug/MaybeTests.dll
+  - mono ./testrunner/NUnit.ConsoleRunner.3.2.0/tools/nunit3-console.exe ./MaybeTests/bin/Debug/MaybeTests.dll
   
