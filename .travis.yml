@@ -13,7 +13,7 @@ addons:
       description: "implementação maybe"
     notification_email: altamir.benkenstein@outlook.com
     build_command_prepend: ""
-    build_command: ""
+    build_command: "msbuild  /p:Configuration=Debug Alt.Utils.sln"
     branch_pattern: master
 
 before_install:
