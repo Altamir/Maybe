@@ -2,11 +2,11 @@
 
 namespace Alt.Utils.Generics
 {
-    public interface IMaybe<T>
+    public interface IMaybe<out T>
     {
         bool HasValue { get; }
         T Value { get; }
-        IList<string> Errors { get; }
+        IEnumerable<string> Errors { get; }
         string Error { get; }
     }
 }
