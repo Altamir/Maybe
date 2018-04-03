@@ -50,11 +50,19 @@ namespace MaybeTests
         }
 
         [Test]
-        public void Test_Imay_Sem_valor_com_msg_error()
+        public void Test_Imay_Sem_valor_com_msg_errors()
         {
             IMaybe<Car> mayCar = Maybe<Car>.WithErrors(new List<string> { "Error test" });
             Assert.IsTrue(!mayCar.HasValue);
             Assert.AreEqual(mayCar.Errors.Single(), "Error test");
+        }
+
+        [Test]
+        public void Test_Imay_Sem_valor_com_msg_error()
+        {
+            IMaybe<Car> mayCar = Maybe<Car>.WithError("Error test");
+            Assert.IsTrue(!mayCar.HasValue);
+            Assert.AreEqual(mayCar.Error, "Error test");
         }
 
         [Test]
