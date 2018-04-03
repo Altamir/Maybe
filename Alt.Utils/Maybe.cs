@@ -15,22 +15,22 @@ namespace Alt.Utils
 
         private Maybe(T value)
         {
-            this.Value = value;
+            Value = value;
             _errors = new List<string>();
             HasValue = true;
         }
 
         private Maybe(string error)
         {
-            this._errors = new List<string>() { error };
-            this.HasValue = false;
+            _errors = new List<string>() { error };
+            HasValue = false;
             Value = default(T);
         }
 
         private Maybe(IEnumerable<string> error)
         {
-            this._errors = new List<string>(error);
-            this.HasValue = false;
+            _errors = new List<string>(error);
+            HasValue = false;
             Value = default(T);
         }
 

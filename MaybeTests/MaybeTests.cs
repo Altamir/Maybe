@@ -8,7 +8,7 @@ namespace MaybeTests
 {
     public class Car
     {
-        public string name { get; set; }
+        public string Name { get; set; }
     }
 
     [TestFixture]
@@ -68,9 +68,9 @@ namespace MaybeTests
         [Test]
         public void Test_Imay_Com_valor_()
         {
-            IMaybe<Car> mayCar = Maybe<Car>.Some(new Car() { name = "car test" });
+            IMaybe<Car> mayCar = Maybe<Car>.Some(new Car() { Name = "car test" });
             Assert.IsTrue(mayCar.HasValue);
-            Assert.AreEqual(mayCar.Value.name, "car test");
+            Assert.AreEqual(mayCar.Value.Name, "car test");
         }
     }
 }
